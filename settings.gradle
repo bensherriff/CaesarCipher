@@ -1,0 +1,4 @@
+rootProject.name = 'CaesarCipher'
+include 'ui'
+include 'app'
+
