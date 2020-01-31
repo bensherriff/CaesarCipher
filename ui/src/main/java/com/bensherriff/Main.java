@@ -23,7 +23,7 @@ public class Main extends Application {
                 getClass().getClassLoader().getResource("main.fxml")));
         stage.setTitle("Caesar Cipher");
 
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(new Scene(root, 800, 800));
         stage.show();
     }
     public static void main(String[] args) {

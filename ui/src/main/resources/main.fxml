@@ -10,47 +10,80 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="600.0"
-          xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.bensherriff.Controller">
+<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bensherriff.Controller">
     <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="150.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="150.0"/>
-        <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="150.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="500.0" minHeight="10.0" prefHeight="450.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
     </rowConstraints>
-    <VBox alignment="CENTER" GridPane.rowIndex="2">
-        <Button fx:id="encryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#encryptClicked"
-                prefHeight="50.0" prefWidth="100.0" text="Encrypt" textAlignment="CENTER"/>
-    </VBox>
-    <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
-        <Button fx:id="crackBtn" alignment="CENTER" mnemonicParsing="false" onAction="#crackClicked"
-                prefHeight="50.0" prefWidth="100.0" text="Crack" textAlignment="CENTER"/>
-    </VBox>
-    <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
-        <Button fx:id="decryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#decryptClicked"
-                prefHeight="50.0" prefWidth="100.0" text="Decrypt" textAlignment="CENTER"/>
-    </VBox>
-    <VBox alignment="CENTER" GridPane.columnSpan="3" GridPane.rowSpan="2">
-        <TextField fx:id="text" alignment="TOP_LEFT" prefHeight="250.0" prefWidth="500.0">
-            <VBox.margin>
-                <Insets left="20.0" right="20.0"/>
-            </VBox.margin>
-        </TextField>
-        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="559.0">
-            <VBox.margin>
-                <Insets left="20.0" right="20.0" top="20.0"/>
-            </VBox.margin>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Key:"/>
-            <TextField fx:id="shiftKey" text="0">
-                <HBox.margin>
-                    <Insets left="10.0"/>
-                </HBox.margin>
+    <VBox alignment="CENTER" GridPane.columnSpan="3">
+        <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints valignment="CENTER" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Input" textAlignment="CENTER" wrappingWidth="260">
+                <GridPane.margin>
+                    <Insets left="20.0" right="20.0"/>
+                </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Output" textAlignment="CENTER" wrappingWidth="260"
+                  GridPane.columnIndex="1">
+                <GridPane.margin>
+                    <Insets left="20.0" right="20.0"/>
+                </GridPane.margin>
+            </Text>
+            <TextField fx:id="inputText" alignment="TOP_LEFT" prefHeight="350.0" prefWidth="260.0"
+                       GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets left="20.0" right="20.0"/>
+                </GridPane.margin>
             </TextField>
-        </HBox>
+            <TextField fx:id="outputText" alignment="TOP_LEFT" prefHeight="350.0" prefWidth="260.0"
+                       GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets left="20.0" right="20.0"/>
+                </GridPane.margin>
+            </TextField>
+        </GridPane>
     </VBox>
+     <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="100.0" GridPane.rowIndex="1">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Key:" />
+         <TextField fx:id="shiftKey" text="0">
+             <HBox.margin>
+                 <Insets left="10.0" />
+             </HBox.margin>
+         </TextField>
+      <GridPane.margin>
+         <Insets left="20.0" right="20.0" />
+      </GridPane.margin>
+     </HBox>
+    <HBox alignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="2">
+        <Button fx:id="encryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#encryptClicked"
+                prefHeight="50.0" prefWidth="100.0" text="Encrypt" textAlignment="CENTER">
+         <HBox.margin>
+             <Insets bottom="20.0" left="20.0" right="20.0"/>
+         </HBox.margin>
+        </Button>
+        <Button fx:id="decryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#decryptClicked"
+                prefHeight="50.0" prefWidth="100.0" text="Decrypt" textAlignment="CENTER">
+         <HBox.margin>
+             <Insets bottom="20.0" left="20.0" right="20.0"/>
+         </HBox.margin>
+        </Button>
+        <Button fx:id="crackBtn" alignment="CENTER" mnemonicParsing="false" onAction="#crackClicked" prefHeight="50.0"
+                prefWidth="100.0" text="Crack" textAlignment="CENTER">
+         <HBox.margin>
+             <Insets bottom="20.0" left="20.0" right="20.0"/>
+         </HBox.margin>
+        </Button>
+    </HBox>
 </GridPane>
