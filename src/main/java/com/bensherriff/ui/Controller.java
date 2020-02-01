@@ -1,5 +1,6 @@
-package com.bensherriff;
+package com.bensherriff.ui;
 
+import com.bensherriff.app.Cipher;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
