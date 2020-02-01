@@ -1,6 +1,5 @@
-package com.bensherriff;
+package com.bensherriff.app;
 
-import com.bensherriff.app.Cipher;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;

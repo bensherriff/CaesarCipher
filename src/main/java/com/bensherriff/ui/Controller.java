@@ -9,10 +9,10 @@ import javafx.scene.control.TextField;
 public class Controller {
     public Button encryptBtn;
     public Button decryptBtn;
-    public Button crackBtn;
     public TextField shiftKey;
     public TextArea inputText;
     public TextArea outputText;
+    public Button hackBtn;
 
     public void encryptClicked(ActionEvent actionEvent) {
         int key = Math.abs(Integer.parseInt(shiftKey.getText()));
@@ -28,8 +28,8 @@ public class Controller {
         outputText.setText(result);
     }
 
-    public void crackClicked(ActionEvent actionEvent) {
-        String result = Cipher.crack(inputText.getText());
+    public void hackClicked(ActionEvent actionEvent) {
+        String result = Cipher.hack(inputText.getText());
         outputText.setText(result);
     }
 }

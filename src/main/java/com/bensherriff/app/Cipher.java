@@ -1,10 +1,7 @@
 package com.bensherriff.app;
 
-import com.bensherriff.app.Frequency;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.*;
 
 public class Cipher {
 
@@ -17,7 +14,7 @@ public class Cipher {
      * @return - Encrypted string
      */
     public static String encrypt(String msg, int shiftKey) {
-//        logger.info("Encrypting: " + msg);
+        logger.info("Encrypting message with key: " + shiftKey);
         char[] result = new char[msg.length()];
         shiftKey = validate(shiftKey);
 
@@ -28,7 +25,7 @@ public class Cipher {
     }
 
     public static String decrypt(String msg, int shiftKey) {
-//        logger.info("Decrypting: " + msg);
+        logger.info("Decrypting message with key: " + shiftKey);
         char[] result = new char[msg.length()];
         shiftKey = -validate(shiftKey);
 
@@ -38,45 +35,11 @@ public class Cipher {
         return new String(result);
     }
 
-    public static String crack(String msg) {
-//        logger.info("Cracking: " + msg);
-        int totalCharacters = 0;
-        Map<Character, Double> characters = new HashMap<>();
-        Frequency frequency = new Frequency();
-        for (int i = 0; i < msg.length(); i++) {
-            if (Character.isAlphabetic(msg.charAt(i))) {
-                Double currentValue = characters.getOrDefault(msg.charAt(i), 0.0);
-                characters.put(Character.toLowerCase(msg.charAt(i)), currentValue + 1.0);
-                totalCharacters++;
-            }
-        }
-        for (Map.Entry<Character, Double> entry : characters.entrySet()) {
-            entry.setValue((entry.getValue() / totalCharacters)*100);
-//            logger.info(entry.getKey() + " " + entry.getValue());
-        }
-
-        characters = frequency.sort(characters);
-        Iterator<Map.Entry<Character, Double>> frequencyIterator = frequency.getMap().entrySet().iterator();
-        Map<Character, Character> result = new HashMap<>();
-        for (Map.Entry<Character, Double> entry : characters.entrySet()) {
-            Map.Entry<Character,Double> frequencyEntry = frequencyIterator.next();
-            result.put(entry.getKey(), frequencyEntry.getKey());
-            logger.info(entry.getKey() + " with " + frequencyEntry.getKey());
-            logger.info(entry.getKey() + " with " + decrypt(entry.getKey().toString(), 1));
-            logger.info("");
-        }
-        StringBuilder sb = new StringBuilder(msg);
-        for (int i = 0; i < msg.length(); i++) {
-            if (Character.isLowerCase(msg.charAt(i))) {
-//                logger.info("Replacing " + msg.charAt(i) + " with " + result.get(msg.charAt(i)));
-                sb.setCharAt(i, result.get(msg.charAt(i)));
-            } else if (Character.isUpperCase(msg.charAt(i))) {
-//                logger.info("Replacing " + msg.charAt(i) + " with " + Character.toUpperCase(result.get(Character.toLowerCase(msg.charAt(i)))));
-                sb.setCharAt(i, Character.toUpperCase(Character.toUpperCase(result.get(Character.toLowerCase(msg.charAt(i))))));
-            }
-        }
-
-        return sb.toString();
+    public static String hack(String msg) {
+        logger.info("Hacking message");
+        Hacker hacker = new Hacker();
+        int key = hacker.monogramHack(msg);
+        return decrypt(msg, key);
     }
 
     private static int validate(int shiftKey) {

@@ -1,5 +1,6 @@
 package com.bensherriff.ui;
 
+import com.bensherriff.app.Reader;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +20,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(
                 getClass().getClassLoader().getResource("main.fxml")));
         stage.setTitle("Caesar Cipher");
+
+        Reader.loadProperties("data.properties");
 
         stage.setScene(new Scene(root, 800, 800));
         stage.show();
