@@ -1,6 +1,8 @@
-package com.bensherriff.ui;
+package com.bensherriff.caesar.ui;
 
-import com.bensherriff.app.Reader;
+import com.bensherriff.caesar.app.Hacker;
+import com.bensherriff.caesar.app.Util;
+import com.bensherriff.caesar.data.Data;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,15 +15,18 @@ import java.util.Objects;
 
 public class Main extends Application {
 
-    private final static Logger logger = LogManager.getLogger(Main.class.getName());
+    private static final Logger LOGGER = LogManager.getLogger(Main.class.getName());
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(
                 getClass().getClassLoader().getResource("main.fxml")));
-        stage.setTitle("Caesar Cipher");
+        Util.loadProperties("project.properties");
 
-        Reader.loadProperties("data.properties");
+        Data data = (Data) Util.deserialize("data.xml", Data.class);
+        Hacker.getInstance().setData(data);
+
+        stage.setTitle("Caesar Cipher v" + Util.getProperty("project.version"));
 
         stage.setScene(new Scene(root, 800, 800));
         stage.show();

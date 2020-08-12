@@ -14,7 +14,7 @@
 <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="600.0"
           xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.bensherriff.ui.Controller">
+          fx:controller="com.bensherriff.caesar.ui.Controller">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
@@ -71,19 +71,19 @@
       </GridPane.margin>
      </HBox>
     <HBox alignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="2">
-        <Button fx:id="encryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#encryptClicked"
+        <Button fx:id="encryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#buttonClicked"
                 prefHeight="50.0" prefWidth="100.0" text="Encrypt" textAlignment="CENTER">
          <HBox.margin>
              <Insets bottom="20.0" left="20.0" right="20.0"/>
          </HBox.margin>
         </Button>
-        <Button fx:id="decryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#decryptClicked"
+        <Button fx:id="decryptBtn" alignment="CENTER" mnemonicParsing="false" onAction="#buttonClicked"
                 prefHeight="50.0" prefWidth="100.0" text="Decrypt" textAlignment="CENTER">
          <HBox.margin>
              <Insets bottom="20.0" left="20.0" right="20.0"/>
          </HBox.margin>
         </Button>
-        <Button fx:id="hackBtn" alignment="CENTER" mnemonicParsing="false" onAction="#hackClicked" prefHeight="50.0"
+        <Button fx:id="hackBtn" alignment="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="50.0"
                 prefWidth="100.0" text="Crack" textAlignment="CENTER">
          <HBox.margin>
              <Insets bottom="20.0" left="20.0" right="20.0"/>

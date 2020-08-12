@@ -5,7 +5,8 @@ creating this project was to try basic encryption and decoding using one of the 
 ## Introduction
 
 ### Encryption
-Encrypt a string consisting of letters and whitespace using a key. Valid keys are integers between 0 and 26.
+Encrypt a string consisting of letters and whitespace using a key known as a Caesar codekey. Valid keys are integers 
+between 0 and 26 for the letters within the English alphabet.
 
 ### Decryption
 Decrypt a string consisting of letters and whitespace using a key. Valid keys are integers between 0 and 26.
@@ -15,7 +16,7 @@ Crack the encrypted string using multiple methods and compare results.
 * Brute Force  
 * Character Frequency  
 
-Utilizing character frequency requires comparing encrypted character frequencies to normal character frequencies, 
+Utilizing character table requires comparing encrypted character frequencies to normal character frequencies, 
 paired with common words, bigrams, trigrams, quadgrams, and quintgrams.
 
 ## Data 

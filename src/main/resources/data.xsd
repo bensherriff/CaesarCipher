@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://www.bensherriff.com"
+        xmlns="https://www.bensherriff.com"
+        elementFormDefault="qualified">
+
+    <xs:complexType name="dataEntry">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="value" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="table">
+        <xs:sequence>
+            <xs:element name="entry" type="dataEntry" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="data">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="wordFrequency" type="table"/>
+                <xs:element name="monogramFrequency" type="table"/>
+                <xs:element name="bigramFrequency" type="table"/>
+                <xs:element name="words" type="table"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
